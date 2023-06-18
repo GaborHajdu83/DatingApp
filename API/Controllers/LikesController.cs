@@ -40,7 +40,7 @@ namespace API.Controllers
             userLike = new UserLike
             {
                 SourceUserId = sourceUserId,
-                LikedUserId = likedUser.Id
+                TargetUserId = likedUser.Id
             };
 
             sourceUser.LikedUsers.Add(userLike);

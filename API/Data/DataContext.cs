@@ -23,7 +23,7 @@ namespace API.Data
             base.OnModelCreating(builder);
 
             builder.Entity<UserLike>()
-                .HasKey(k => new { k.SourceUserId, k.LikedUserId });
+                .HasKey(k => new { k.SourceUserId, k.TargetUserId });
 
             builder.Entity<UserLike>()
                 .HasOne(s => s.SourceUser)
@@ -34,7 +34,7 @@ namespace API.Data
             builder.Entity<UserLike>()
                 .HasOne(s => s.TargetUser)
                 .WithMany(l => l.LikedByUsers)
-                .HasForeignKey(l => l.LikedUserId)
+                .HasForeignKey(l => l.TargetUserId)
                 .OnDelete(DeleteBehavior.NoAction);
         }
     }
